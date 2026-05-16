@@ -4,7 +4,7 @@ Tiny, dependency-free `fetch` wrapper for **Node** and **browsers**. Adds the
 things the platform `fetch` makes you write by hand: timeouts, signal merging,
 a typed JSON helper, and a client factory with shared defaults.
 
-- **Zero runtime dependencies.** ~1 kB gzipped (ESM).
+- **Zero runtime dependencies.** **1.31 kB gzipped** (ESM) — see [Size](#size).
 - **Isomorphic.** Works wherever `globalThis.fetch` exists (Node 18+, modern browsers, edge runtimes, workers).
 - **Type-safe.** First-class TypeScript types, dual ESM/CJS build.
 - **Composable.** `fetchx` is a thin shell over `fetch`; `fetchx.json` and `createClient` build on top.
@@ -244,6 +244,20 @@ reject — wrap and measure in your caller if you need failure timings.
 const stub = vi.fn().mockResolvedValue(new Response("{}"));
 await fetchx(url, { fetchImpl: stub });
 ```
+
+## Size
+
+| What                                | Raw     | Gzipped     |
+| ----------------------------------- | ------- | ----------- |
+| **ESM runtime** (`index.mjs`)       | 2.86 kB | **1.31 kB** |
+| CJS runtime (`index.cjs`)           | 2.94 kB | 1.35 kB     |
+| Types (`.d.mts` / `.d.cts`)         | 6.91 kB | 2.35 kB     |
+| Sourcemaps (debug-only, not loaded) | 21.1 kB | 6.37 kB     |
+
+The number a modern bundler counts toward your app is **1.31 kB gzipped**.
+Zero runtime dependencies, so nothing else ships with it.
+
+For context: ofetch ~1.6 kB, ky ~3.7 kB, axios ~13 kB (all gzipped).
 
 ## License
 
