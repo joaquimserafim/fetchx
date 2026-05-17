@@ -1,5 +1,8 @@
 # @joaquimserafim/fetchx
 
+[![npm version](https://img.shields.io/npm/v/@joaquimserafim/fetchx.svg)](https://www.npmjs.com/package/@joaquimserafim/fetchx)
+[![license](https://img.shields.io/npm/l/@joaquimserafim/fetchx.svg)](./LICENSE)
+
 Tiny, dependency-free `fetch` wrapper for **Node** and **browsers**. Adds the
 things the platform `fetch` makes you write by hand: timeouts, signal merging,
 a typed JSON helper, and a client factory with shared defaults.
